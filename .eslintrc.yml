@@ -1,0 +1,671 @@
+extends:
+  - react-app
+  - react-app/jest
+parserOptions:
+  project:
+    - ./tsconfig.json
+rules:
+  # potential problems
+  array-callback-return:
+    - error
+    - checkForEach: true
+  constructor-super: off # typescript takes care of this with ts(2335) & ts(2377)
+  for-direction: error # recommended by eslint
+  getter-return: off # typescript takes care of this with ts(2378)
+  no-async-promise-executor: error
+  no-await-in-loop: error
+  no-class-assign: off # typescript takes care of this with ts(2629)
+  no-compare-neg-zero: error
+  no-cond-assign:
+    - error
+    - always
+  no-const-assign: off # typescript takes care of this with ts(2588)
+  no-constant-binary-expression: warn
+  no-constant-condition: warn
+  no-constructor-return: error
+  no-control-regex: error
+  no-debugger: error
+  no-dupe-args: off # typescript takes care of this with ts(2300)
+  no-dupe-class-members: off # typescript takes care of this with ts(2393) and ts(2300)
+  no-dupe-else-if: error
+  no-dupe-keys: off # typescript takes care of this with ts(1117)
+  no-duplicate-case: error
+  no-duplicate-imports: off # superceded by the typescript-eslint version of the rule
+  no-empty-character-class: error
+  no-empty-pattern: error
+  no-ex-assign: error
+  no-fallthrough: error
+  no-func-assign: off # typescript takes care of this with ts(2630)
+  no-import-assign: off # typescript takes care of this with ts(2632)
+  no-inner-declarations:
+    - error
+    - both
+  no-invalid-regexp: error
+  no-irregular-whitespace: error
+  no-loss-of-precision: off # superceded by the typescript-eslint version of the rule
+  no-misleading-character-class: error
+  no-new-native-nonconstructor: off # typescript takes care of this with ts(7009)
+  no-new-symbol: off # typescript takes care of this with ts(7009)
+  no-obj-calls: off # typescript takes care of this with ts(2349)
+  no-promise-executor-return: error
+  no-prototype-builtins: error
+  no-self-assign: error
+  no-self-compare: error
+  no-setter-return: off # typescript takes care of this with ts(2408)
+  no-sparse-arrays: error
+  no-template-curly-in-string: warn # rare corner case this might be needed
+  no-this-before-super: off # typescript takes care of this with ts(2376)
+  no-undef: off # typescript takes care of this with ts(2304)
+  no-unexpected-multiline: error
+  no-unmodified-loop-condition: warn # possible rare corner case
+  no-unreachable: off # typescript takes care of this with ts(7027)
+  no-unreachable-loop: error
+  no-unsafe-finally: warn # corner cases exist but beware
+  no-unsafe-negation: off # typescript takes care of this with ts(2365) and ts(2360) and ts(2358)
+  no-unsafe-optional-chaining:
+    - error
+    - disallowArithmeticOperators: true
+  no-unused-private-class-members: error
+  no-unused-vars: off # superceded by the typescript-eslint version of the rule
+  no-use-before-define: off # superceded by the typescript-eslint version of the rule
+  no-useless-backreference: error
+  require-atomic-updates: error
+  use-isnan:
+    - error
+    - enforceForSwitchCase: true
+      enforceForIndexOf: true
+  valid-typeof: off # typescript takes care of this with ts(2367)
+
+  # suggestions
+  accessor-pairs:
+    - warn
+    - setWithoutGet: true
+      getWithoutSet: true
+      enforceForClassMembers: true
+  arrow-body-style: off # use one line where appropriate
+  block-scoped-var: warn
+  camelcase: warn
+  capitalized-comments: off # overkill and prevents commenting out blocks of code
+  class-methods-use-this: error
+  complexity:
+    - warn
+    - 10
+  consistent-return: warn
+  consistent-this: warn # this only matters for libraries like jQuery (ensures that === this)
+  curly:
+    - error
+    - multi-line
+  default-case: error
+  default-case-last: warn
+  default-param-last: off # superceded by the typescript-eslint version of the rule
+  dot-notation: off # superceded by the typescript-eslint version of the rule
+  eqeqeq:
+    - warn
+    - smart
+  func-name-matching: off # overly strict and unnecessary
+  func-names: off # no reason to regulate naming function expressions
+  func-style: off # too restricting to choose one style or the other
+  grouped-accessor-pairs:
+    - warn
+    - getBeforeSet
+  guard-for-in: warn
+  id-denylist: off # may turn on as needed
+  id-length: off # while tempting will get annoying with for-loops etc
+  id-match: off # way too specific
+  init-declarations: off # superceded by the typescript-eslint version of the rule
+  logical-assignment-operators: off # too restricting of personal style
+  max-classes-per-file: warn
+  max-depth: warn
+  max-lines: warn # default 300
+  max-lines-per-function:
+    - warn
+    - max: 100 # default 50
+  max-nested-callbacks:
+    - warn
+    - 3
+  max-params:
+    - warn
+    - 5
+  max-statements: warn # default 10
+  multiline-comment-style: off # too restricting
+  new-cap: error
+  no-alert: warn
+  no-array-constructor: off # superceded by the typescript-eslint version of the rule
+  no-bitwise: error
+  no-caller: error
+  no-case-declarations: error
+  no-confusing-arrow: warn
+  no-console: off # don't touch mah debuggah
+  no-continue: off # prevents base-casing (may re-enable in the future)
+  no-delete-var: error
+  no-div-regex: warn
+  no-else-return: warn
+  no-empty: warn
+  no-empty-function: off # superceded by the typescript-eslint version of the rule
+  no-empty-static-block: warn
+  no-eq-null: error
+  no-eval: error
+  no-extend-native: error
+  no-extra-bind: error
+  no-extra-boolean-cast: warn
+  no-extra-label: error
+  no-extra-semi: off # superceded by the typescript-eslint version of the rule
+  no-floating-decimal: warn
+  no-global-assign: error
+  no-implicit-coercion: off # I like my clever conversions
+  no-implicit-globals: warn
+  no-implied-eval: off # superceded by the typescript-eslint version of the rule
+  no-inline-comments: off # put comments wherever you want
+  no-invalid-this: off # superceded by the typescript-eslint version of the rule
+  no-iterator: error
+  no-label-var: warn
+  no-labels: off # use labels if you must
+  no-lone-blocks: error
+  no-lonely-if: warn
+  no-loop-func: off # superceded by the typescript-eslint version of the rule
+  no-magic-numbers: # way too draconian
+    - off
+    - ignoreArrayIndexes: true
+      ignoreDefaultValues: true
+      ignoreClassFieldInitialValues: true
+      enforceConst: true
+      detectObjects: false
+  no-mixed-operators: error
+  no-multi-str: warn
+  no-negated-condition: warn # might turn out to be too restrictive but makes sense so far
+  no-nested-ternary: error
+  no-new: error
+  no-new-func: error
+  no-new-object: warn
+  no-new-wrappers: error
+  no-nonoctal-decimal-escape: error
+  no-octal: error
+  no-octal-escape: warn
+  no-param-reassign: error
+  no-plusplus: off # too strict for most purposes and semicolons are already required
+  no-proto: error
+  no-redeclare: off # superceded by the typescript-eslint version of the rule
+  no-regex-spaces: error
+  no-restricted-exports: off # no need in this project
+  # no-restricted-globals: not configured - react-app already takes care of this by disallowing browser globals
+  no-restricted-imports: off # no need in this project
+  no-restricted-properties: off # no need in this project
+  # no-restricted-syntax: not configured - react-app already takes care of this by disallowing "with" statement
+  no-return-assign: warn
+  no-return-await: off # superceded by the typescript-eslint version of the rule
+  no-script-url: error
+  no-sequences: error
+  no-shadow: off # superceded by the typescript-eslint version of the rule
+  no-shadow-restricted-names: error
+  no-ternary: off # too draconian
+  no-throw-literal: off # superceded by the typescript-eslint version of the rule
+  no-undef-init: warn
+  no-undefined: off
+  no-underscore-dangle: off # I will dangle if I want
+  no-unneeded-ternary:
+    - warn
+    - defaultAssignment: true
+  no-unused-expressions: off # not that important
+  no-unused-labels: warn
+  no-useless-call: error
+  no-useless-catch: error
+  no-useless-computed-key:
+    - warn
+    - enforceForClassMembers: true
+  no-useless-concat: error 
+  no-useless-constructor: off # superceded by the typescript-eslint version of the rule
+  no-useless-escape: error
+  no-useless-rename: warn
+  no-useless-return: warn
+  no-var: error
+  no-void: error
+  no-warning-comments: off # no need in this project
+  no-with: error
+  object-shorthand:
+    - warn
+    - always
+    - avoidQuotes: true
+  one-var: off # makes it look ugly
+  one-var-declaration-per-line: off # get off my variables
+  operator-assignment: off # doesn't need enforcement
+  prefer-arrow-callback: warn
+  prefer-const: warn
+  prefer-destructuring: warn
+  prefer-exponentiation-operator: warn
+  prefer-named-capture-group: warn
+  prefer-numeric-literals: warn
+  prefer-object-has-own: warn
+  prefer-object-spread: warn
+  prefer-promise-reject-errors: warn
+  prefer-regex-literals: warn
+  prefer-rest-params: warn
+  prefer-spread: warn
+  prefer-template: warn
+  quote-props:
+    - warn
+    - as-needed
+    - keywords: true
+  radix: off # nitpicky and irrelevant in ES5
+  require-await: off # superceded by the typescript-eslint version of the rule
+  require-unicode-regexp: off # not really required
+  require-yield: warn
+  sort-imports: off # good to do but not always needed
+  sort-keys: off # good to do but not always needed
+  sort-vars: off # good to do but not always needed
+  spaced-comment:
+    - warn
+    - always
+    - markers:
+        - /
+  strict:
+    - warn
+    - never
+  symbol-description: warn
+  vars-on-top: warn
+  yoda:
+    - warn
+    - never
+  
+  # layout & formatting
+  array-bracket-newline:
+    - warn
+    - multiline: true
+  array-bracket-spacing:
+    - warn
+    - never
+  array-element-newline:
+    - warn
+    - consistent
+  arrow-parens:
+    - error
+    - always
+  arrow-spacing: error
+  block-spacing: off # not necessary
+  brace-style: off # superceded by the typescript-eslint version of the rule
+  comma-dangle: off # superceded by the typescript-eslint version of the rule
+  comma-spacing: off
+  comma-style: warn
+  computed-property-spacing: warn
+  dot-location:
+    - warn
+    - property
+  eol-last:
+    - error
+    - always
+  func-call-spacing: off # superceded by the typescript-eslint version of the rule
+  function-call-argument-newline:
+    - error
+    - consistent
+  function-paren-newline:
+   - error
+   - multiline-arguments
+  generator-star-spacing:
+    - error
+    - before
+  implicit-arrow-linebreak:
+    - error
+    - beside
+  indent: off # superceded by the typescript-eslint version of the rule
+  jsx-quotes: error
+  key-spacing: off # superceded by the typescript-eslint version of the rule
+  keyword-spacing: off # superceded by the typescript-eslint version of the rule
+  line-comment-position: off # let developer decide based on context
+  linebreak-style: warn
+  lines-around-comment: off # superceded by the typescript-eslint version of the rule
+  lines-between-class-members: off # not significant enough to be enforced, also too rigid
+  max-len:
+    - warn
+    - code: 140
+  max-statements-per-line:
+    - warn
+    - max: 1
+  multiline-ternary:
+    - warn
+    - always-multiline
+  new-parens: error
+  newline-per-chained-call:
+    - warn
+    - ignoreChainWithDepth: 3
+  no-extra-parens: off # extra parens make more clear
+  no-mixed-spaces-and-tabs: error
+  no-multi-spaces: warn
+  no-multiple-empty-lines: warn
+  no-tabs: error
+  no-trailing-spaces: warn
+  no-whitespace-before-property: warn
+  nonblock-statement-body-position: error
+  object-curly-newline:
+    - warn
+    - multiline: true
+  object-curly-spacing: off # superceded by the typescript-eslint version of the rule
+  object-property-newline: off # sometimes inline object makes sense (think options argument)
+  operator-linebreak:
+    - warn
+    - after
+  padded-blocks: off # generally a waste of space but sometimes may be needed for readability
+  padding-line-between-statements: off # superceded by the typescript-eslint version of the rule
+  quotes: off # superceded by the typescript-eslint version of the rule
+  rest-spread-spacing:
+    - error
+    - never
+  semi: off # superceded by the typescript-eslint version of the rule
+  semi-spacing:
+    - error
+    - before: false
+      after: true
+  semi-style:
+    - error
+    - last
+  space-before-blocks: off # superceded by the typescript-eslint version of the rule
+  space-before-function-paren: off # superceded by the typescript-eslint version of the rule
+  space-in-parens: warn
+  space-infix-ops: off # superceded by the typescript-eslint version of the rule
+  space-unary-ops: warn
+  switch-colon-spacing: warn
+  template-curly-spacing: off # can be left up to the situation
+  template-tag-spacing: warn
+  unicode-bom:
+    - warn
+    - never
+  wrap-iife:
+    - warn
+    - inside
+  wrap-regex: warn
+  yield-star-spacing: warn
+
+  "@typescript-eslint/adjacent-overload-signatures": warn
+  "@typescript-eslint/array-type": warn
+  "@typescript-eslint/await-thenable": warn
+  "@typescript-eslint/ban-ts-comment": off # too draconian and unnecessary
+  "@typescript-eslint/ban-tslint-comment": warn
+  "@typescript-eslint/ban-types": warn
+  "@typescript-eslint/class-literal-property-style": warn
+  "@typescript-eslint/consistent-generic-constructors": warn
+  "@typescript-eslint/consistent-indexed-object-style": warn
+  "@typescript-eslint/consistent-type-assertions":
+    - warn
+    - assertionStyle: as
+      objectLiteralTypeAssertions: never
+  "@typescript-eslint/consistent-type-definitions": warn
+  "@typescript-eslint/consistent-type-exports": off
+  "@typescript-eslint/consistent-type-imports": off
+  "@typescript-eslint/explicit-function-return-type": warn
+  "@typescript-eslint/explicit-member-accessibility": off
+  "@typescript-eslint/explicit-module-boundary-types": warn
+  "@typescript-eslint/member-ordering": off
+  "@typescript-eslint/method-signature-style": off
+  "@typescript-eslint/naming-convention": off
+  "@typescript-eslint/no-base-to-string": warn
+  "@typescript-eslint/no-confusing-non-null-assertion": warn
+  "@typescript-eslint/no-confusing-void-expression":
+    - warn
+    - ignoreArrowShorthand: true
+      ignoreVoidOperator: true
+  "@typescript-eslint/no-duplicate-enum-values": error
+  "@typescript-eslint/no-duplicate-type-constituents": warn
+  "@typescript-eslint/no-dynamic-delete": warn
+  "@typescript-eslint/no-empty-interface": warn
+  "@typescript-eslint/no-explicit-any": warn
+  "@typescript-eslint/no-extra-non-null-assertion": warn
+  "@typescript-eslint/no-extraneous-class": warn
+  "@typescript-eslint/no-floating-promises": warn
+  "@typescript-eslint/no-for-in-array": warn
+  "@typescript-eslint/no-import-type-side-effects": off # Very much a corner case
+  "@typescript-eslint/no-inferrable-types": warn
+  "@typescript-eslint/no-invalid-void-type": warn
+  "@typescript-eslint/no-meaningless-void-operator": warn
+  "@typescript-eslint/no-misused-new": warn
+  "@typescript-eslint/no-misused-promises": warn
+  "@typescript-eslint/no-mixed-enums": warn
+  "@typescript-eslint/no-namespace": warn
+  "@typescript-eslint/no-non-null-asserted-nullish-coalescing": warn
+  "@typescript-eslint/no-non-null-asserted-optional-chain": warn
+  "@typescript-eslint/no-non-null-assertion": warn
+  "@typescript-eslint/no-parameter-properties": off # deprecated in favor of parameter-properties
+  "@typescript-eslint/no-redundant-type-constituents": warn
+  "@typescript-eslint/no-require-imports": warn
+  "@typescript-eslint/no-this-alias": warn
+  "@typescript-eslint/no-type-alias": off # really draconian. Type aliases may improve readability
+  "@typescript-eslint/no-unnecessary-boolean-literal-compare": warn
+  "@typescript-eslint/no-unnecessary-condition": warn
+  "@typescript-eslint/no-unnecessary-qualifier": warn
+  "@typescript-eslint/no-unnecessary-type-arguments": warn
+  "@typescript-eslint/no-unnecessary-type-assertion": warn
+  "@typescript-eslint/no-unnecessary-type-constraint": warn
+  "@typescript-eslint/no-unsafe-argument": warn
+  "@typescript-eslint/no-unsafe-assignment": warn
+  "@typescript-eslint/no-unsafe-call": warn
+  "@typescript-eslint/no-unsafe-declaration-merging": warn
+  "@typescript-eslint/no-unsafe-enum-comparison": warn
+  "@typescript-eslint/no-unsafe-member-access": warn
+  "@typescript-eslint/no-unsafe-return": warn
+  "@typescript-eslint/no-useless-empty-export": warn
+  "@typescript-eslint/no-var-requires": warn
+  "@typescript-eslint/non-nullable-type-assertion-style": warn
+  "@typescript-eslint/parameter-properties": warn
+  "@typescript-eslint/prefer-as-const": warn
+  "@typescript-eslint/prefer-enum-initializers": off # no particular need
+  "@typescript-eslint/prefer-for-of": warn
+  "@typescript-eslint/prefer-function-type": warn
+  "@typescript-eslint/prefer-includes": warn
+  "@typescript-eslint/prefer-literal-enum-member": warn
+  "@typescript-eslint/prefer-namespace-keyword": warn
+  "@typescript-eslint/prefer-nullish-coalescing": warn
+  "@typescript-eslint/prefer-optional-chain": warn
+  "@typescript-eslint/prefer-readonly": warn
+  "@typescript-eslint/prefer-readonly-parameter-types": off # causes havoc with react children
+  "@typescript-eslint/prefer-reduce-type-parameter": warn
+  "@typescript-eslint/prefer-regexp-exec": warn
+  "@typescript-eslint/prefer-return-this-type": warn
+  "@typescript-eslint/prefer-string-starts-ends-with": warn
+  "@typescript-eslint/prefer-ts-expect-error": warn
+  "@typescript-eslint/promise-function-async": warn
+  "@typescript-eslint/require-array-sort-compare": warn
+  "@typescript-eslint/restrict-plus-operands": warn
+  "@typescript-eslint/restrict-template-expressions": warn
+  "@typescript-eslint/sort-type-constituents": warn
+  "@typescript-eslint/sort-type-union-intersection-members": off # deprecated in favor of @typescript-eslint/sort-type-constituents
+  "@typescript-eslint/strict-boolean-expressions": warn
+  "@typescript-eslint/switch-exhaustiveness-check": warn
+  "@typescript-eslint/triple-slash-reference": warn
+  "@typescript-eslint/type-annotation-spacing": warn
+  "@typescript-eslint/typedef": off # no unnecessary typing
+  "@typescript-eslint/unbound-method": warn
+  "@typescript-eslint/unified-signatures": warn
+
+  "@typescript-eslint/block-spacing": off # not necessary
+  "@typescript-eslint/brace-style":
+    - error
+    - 1tbs
+    - allowSingleLine: true
+  "@typescript-eslint/comma-dangle":
+    - warn
+    - always-multiline
+  "@typescript-eslint/comma-spacing": warn
+  "@typescript-eslint/default-param-last": warn
+  "@typescript-eslint/dot-notation": warn
+  "@typescript-eslint/func-call-spacing":
+    - error
+    - never
+  "@typescript-eslint/indent":
+    - warn
+    - 2
+  "@typescript-eslint/init-declarations": warn
+  "@typescript-eslint/key-spacing": error
+  "@typescript-eslint/keyword-spacing": error
+  "@typescript-eslint/lines-around-comment": warn
+  "@typescript-eslint/lines-between-class-members": off # not significant enough to be enforced, also too rigid
+  "@typescript-eslint/no-array-constructor": error
+  "@typescript-eslint/no-dupe-class-members": off # typescript takes care of this with ts(2393) and ts(2300)
+  "@typescript-eslint/no-duplicate-imports":
+    - error
+    - includeExports: true
+  "@typescript-eslint/no-empty-function": warn
+  "@typescript-eslint/no-extra-parens": off # extra parens make more clear
+  "@typescript-eslint/no-extra-semi": warn
+  "@typescript-eslint/no-implied-eval": error
+  "@typescript-eslint/no-invalid-this": error
+  "@typescript-eslint/no-loop-func": error
+  "@typescript-eslint/no-loss-of-precision": error
+  "@typescript-eslint/no-magic-numbers":
+    - off # way too draconian
+    - ignoreArrayIndexes: true
+      ignoreDefaultValues: true
+      ignoreClassFieldInitialValues: true
+      enforceConst: true
+      detectObjects: false
+  "@typescript-eslint/no-redeclare": error
+  "@typescript-eslint/no-restricted-imports": off # no need in this project
+  "@typescript-eslint/no-shadow":
+    - error
+    - builtinGlobals: true
+  "@typescript-eslint/no-throw-literal": warn
+  "@typescript-eslint/no-unused-expressions": off # not that important
+  "@typescript-eslint/no-unused-vars": warn
+  "@typescript-eslint/no-use-before-define": error
+  "@typescript-eslint/no-useless-constructor": error
+  "@typescript-eslint/object-curly-spacing": off # too restrictive
+  "@typescript-eslint/padding-line-between-statements":
+    - warn
+    - blankLine: always
+      prev: "*"
+      next: return
+  "@typescript-eslint/quotes":
+    - error
+    - double
+    - avoidEscape: true
+  "@typescript-eslint/require-await": warn
+  "@typescript-eslint/return-await": error
+  "@typescript-eslint/semi":
+    - error
+    - always
+  "@typescript-eslint/space-before-blocks":
+    - warn
+    - always
+  "@typescript-eslint/space-before-function-paren":
+    - error
+    - anonymous: never
+      named: never
+      asyncArrow: always
+  "@typescript-eslint/space-infix-ops": warn
+
+  react/boolean-prop-naming: warn # currently broken
+  react/button-has-type: warn
+  react/default-props-match-prop-types: warn
+  react/destructuring-assignment: warn
+  react/display-name: warn
+  react/forbid-component-props: off # silly restriction
+  react/forbid-dom-props: off # not needed in this project
+  react/forbid-elements: off # not needed in this project
+  react/forbid-foreign-prop-types: off # not needed in this project
+  react/forbid-prop-types: off # not needed in this project
+  react/function-component-definition: off # too restrictive
+  react/hook-use-state:
+    - warn
+    - allowDestructuredState: true
+  react/iframe-missing-sandbox: warn
+  react/jsx-boolean-value: warn
+  react/jsx-child-element-spacing: warn
+  react/jsx-closing-bracket-location: warn
+  react/jsx-closing-tag-location: warn
+  react/jsx-curly-brace-presence: warn
+  react/jsx-curly-newline: warn
+  react/jsx-curly-spacing: warn
+  react/jsx-equals-spacing: warn
+  react/jsx-filename-extension:
+    - warn
+    - extensions:
+      - .jsx
+      - .tsx
+  react/jsx-first-prop-new-line: warn
+  react/jsx-fragments: warn
+  react/jsx-handler-names: warn
+  react/jsx-indent:
+    - error
+    - 2
+    - checkAttributes: true
+      indentLogicalExpressions: true
+  react/jsx-indent-props:
+    - warn
+    - 2
+  react/jsx-key: warn
+  react/jsx-max-depth: off
+  react/jsx-max-props-per-line:
+    - warn
+    - maximum: 4
+  react/jsx-newline: off # let developers decide logically where new lines should go
+  react/jsx-no-bind: warn
+  react/jsx-no-comment-textnodes: warn
+  react/jsx-no-constructed-context-values: warn
+  react/jsx-no-duplicate-props: warn
+  react/jsx-no-leaked-render: warn
+  react/jsx-no-literals: off # too rigid
+  react/jsx-no-script-url: warn
+  react/jsx-no-target-blank: warn
+  react/jsx-no-undef: warn
+  react/jsx-no-useless-fragment: warn
+  react/jsx-one-expression-per-line:
+    - warn
+    - allow: single-child
+  react/jsx-pascal-case: warn
+  react/jsx-props-no-multi-spaces: warn
+  react/jsx-props-no-spreading: warn
+  react/jsx-sort-props: warn
+  react/jsx-tag-spacing: warn
+  react/jsx-uses-react: off # not needed for CRA
+  react/jsx-uses-vars: warn
+  react/jsx-wrap-multilines: warn
+  react/no-access-state-in-setstate: warn
+  react/no-adjacent-inline-elements: warn
+  react/no-array-index-key: warn
+  react/no-arrow-function-lifecycle: warn
+  react/no-children-prop: warn
+  react/no-danger: warn
+  react/no-danger-with-children: warn
+  react/no-deprecated: warn
+  react/no-did-mount-set-state: warn
+  react/no-did-update-set-state: warn
+  react/no-direct-mutation-state: warn
+  react/no-find-dom-node: warn
+  react/no-invalid-html-attribute: warn
+  react/no-is-mounted: warn
+  react/no-multi-comp: warn
+  react/no-namespace: warn
+  react/no-object-type-as-default-prop: warn
+  react/no-redundant-should-component-update: warn
+  react/no-render-return-value: warn
+  react/no-set-state: warn
+  react/no-string-refs: warn
+  react/no-this-in-sfc: warn
+  react/no-typos: warn
+  react/no-unescaped-entities: warn
+  react/no-unknown-property: warn
+  react/no-unsafe: warn
+  react/no-unstable-nested-components: warn
+  react/no-unused-class-component-methods: warn
+  react/no-unused-prop-types: warn
+  react/no-unused-state: warn
+  react/no-will-update-set-state: warn
+  react/prefer-es6-class: warn
+  react/prefer-exact-props: warn
+  react/prefer-read-only-props: warn
+  react/prefer-stateless-function: warn
+  react/prop-types: off
+  react/react-in-jsx-scope: off # not needed for CRA
+  react/require-default-props: off
+  react/require-optimization: warn
+  react/require-render-return: warn
+  react/self-closing-comp: warn
+  react/sort-comp: warn
+  react/sort-default-props: warn
+  react/sort-prop-types: warn
+  react/state-in-constructor: warn
+  react/static-property-placement: warn
+  react/style-prop-object: warn
+  react/void-dom-elements-no-children: warn
+
+  react-hooks/rules-of-hooks: error
+  react-hooks/exhaustive-deps: warn
+
+env:
+  es2022: true
