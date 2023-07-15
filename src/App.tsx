@@ -1,5 +1,7 @@
+import GlobalStyle from "globalStyles";
 import { Logo } from "components/Logo";
 import styled from "styled-components";
+import { LoginForm } from "components/LoginForm";
 
 const AppBody = styled.div`
   display: flex;
@@ -10,6 +12,9 @@ const AppBody = styled.div`
   min-height: 101vh;
   box-sizing: border-box;
   position: relative;
+  @media (max-width: 480px) {
+    justify-content: flex-start;
+  }
 `;
 
 const AppContainer = styled.div`
@@ -20,14 +25,15 @@ const AppContainer = styled.div`
 
 const App = (): JSX.Element => {
   return (
-    <AppBody>
-      <AppContainer>
-        <Logo />
-        <div style={{height: "482px", border: "1px solid hotpink"}}>
-          I am a div.
-        </div>
-      </AppContainer>
-    </AppBody>
+    <>
+      <GlobalStyle />
+      <AppBody>
+        <AppContainer>
+          <Logo />
+          <LoginForm />
+        </AppContainer>
+      </AppBody>
+    </>
   );
 };
 
