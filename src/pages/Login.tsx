@@ -18,7 +18,6 @@ const HelperText = styled.div`
   ${bodyText};
   display: block;
   margin-bottom: 2.5rem;
-
 `;
 
 const CenteredHelperText = styled(HelperText)`
