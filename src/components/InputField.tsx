@@ -71,7 +71,6 @@ const Messages = styled.div`
   text-align: right;
 `;
 
-
 export const InputField = ({error, fieldName, label, placeholder, type = "text", icon}: InputFieldProps): JSX.Element => {
   const renderIcon = useCallback(() => {
     if (icon === undefined) {
