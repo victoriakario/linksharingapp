@@ -17,7 +17,7 @@ const secondaryStyles = css`
 
 const conditionallyAddSecondaryStyle = ({$variant = "primary"}): typeof secondaryStyles | null => {
   return $variant === "secondary" ? secondaryStyles : null;
-}
+};
 
 export const Button = styled.button<ButtonProps>`
   ${headingSmall};
