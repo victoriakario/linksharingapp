@@ -50,14 +50,12 @@ const Label = styled.label`
 const Input = styled.input`
   ${bodyText};
   border: none;
-  display: block;
   outline: none;
   padding: 0;
-  width: 100%;
   &:focus {
     outline: none;
   }
-  flex-grow: 1;
+  flex: 1;
   &::placeholder {
     opacity: 0.5;
   }
@@ -66,6 +64,7 @@ const Input = styled.input`
 const Messages = styled.div`
   ${bodyTextSmall};
   color: var(--alert-color);
+  flex: 0 0 auto;
   text-align: right;
 `;
 
@@ -75,7 +74,10 @@ export const InputField = ({error, fieldName, label, placeholder, type = "text",
     if (icon === undefined) {
       return null;
     }
-    const Icon = icons[icon];
+
+    const Icon = styled(icons[icon])`
+      flex: 0 0 auto;
+    `;
 
     return <Icon />;
   }, [icon]);
@@ -92,6 +94,7 @@ export const InputField = ({error, fieldName, label, placeholder, type = "text",
           id={`input-${fieldName}`}
           maxLength={360}
           placeholder={placeholder}
+          size={1}
           type={type}
         />
         { error !== undefined && <Messages>{error}</Messages>}
