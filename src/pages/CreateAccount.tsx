@@ -27,8 +27,8 @@ const HelperTextSmall = styled(HelperText)`
 
 
 const CenteredHelperText = styled(HelperText)`
-  text-align: center;
   margin-bottom: unset;
+  text-align: center;
   & > & {
     color: var(--accent-color);
     display: block;
