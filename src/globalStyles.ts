@@ -44,7 +44,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Instrument Sans', sans-serif;
     font-size: 16px;
   }
-
 `;
 
 export default GlobalStyle;
