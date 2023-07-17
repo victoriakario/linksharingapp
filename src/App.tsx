@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 import GlobalStyle from "globalStyles";
-// import { CreateAccount } from "pages/CreateAccount";
-import { HomeLayout } from "pages/HomeLayout";
+import { CreateAccount } from "pages/CreateAccount";
+// import { HomeLayout } from "pages/HomeLayout";
 // import { Login } from "pages/Login";
 
 const AppBody = styled.div`
   align-items: center;
+  background-color: var(--background-color);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -23,7 +24,9 @@ const App = (): JSX.Element => {
     <>
       <GlobalStyle />
       <AppBody>
-        <HomeLayout />
+        <CreateAccount />
+        {/* <HomeLayout />
+        <Login /> */}
       </AppBody>
     </>
   );
