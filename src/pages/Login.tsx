@@ -40,7 +40,7 @@ const CenteredHelperText = styled(HelperText)`
   }
 `;
 
-export const LoginForm = (): JSX.Element => {
+export const Login = (): JSX.Element => {
   return (
     <AuthContainer>
       <FormWrapper>
