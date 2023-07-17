@@ -6,7 +6,6 @@ interface ButtonProps {
   $variant?: "primary" | "secondary";
 }
 
-
 const secondaryStyles = css`
   background-color: var(--light-text-color);
   border: 1px solid var(--accent-color);
