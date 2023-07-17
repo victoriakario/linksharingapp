@@ -35,7 +35,6 @@ const GlobalStyle = createGlobalStyle`
     user-select: none;
   }
 
-
   html {
     height: 100vh;
   }
