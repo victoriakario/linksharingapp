@@ -2,7 +2,7 @@ import GlobalStyle from "globalStyles";
 import styled from "styled-components";
 // import { CreateAccount } from "pages/CreateAccount";
 import { HomeLayout } from "pages/HomeLayout";
-// import { LoginForm } from "pages/LoginForm";
+// import { Login } from "pages/Login";
 
 const AppBody = styled.div`
   align-items: center;
