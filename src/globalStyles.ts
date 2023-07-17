@@ -27,8 +27,14 @@ const GlobalStyle = createGlobalStyle`
     --alert-color: #ff3939;
 
     --box-shadow-primary: 0px 0px 32px 0px rgba(99 60 255 / 25%);
-
   }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+    user-select: none;
+  }
+
 
   html {
     height: 100vh;
