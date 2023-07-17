@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+
 import { headingSmall } from "components/Typography";
 
 interface ButtonProps {

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import { bodyText, bodyTextSmall, headingMedium } from "components/Typography";
-import { InputField } from "components/InputField";
-import { Button } from "components/Button";
 import { AuthContainer } from "components/AuthContainer";
+import { Button } from "components/Button";
+import { InputField } from "components/InputField";
+import { bodyText, bodyTextSmall, headingMedium } from "components/Typography";
 
 const FormWrapper = styled.div`
   box-sizing: border-box;

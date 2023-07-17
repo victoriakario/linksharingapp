@@ -1,5 +1,6 @@
-import GlobalStyle from "globalStyles";
 import styled from "styled-components";
+
+import GlobalStyle from "globalStyles";
 // import { CreateAccount } from "pages/CreateAccount";
 import { HomeLayout } from "pages/HomeLayout";
 // import { Login } from "pages/Login";

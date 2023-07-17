@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+
 import InstrumentSans from "assets/fonts/InstrumentSans-VariableFont_wdthwght.ttf";
 import InstrumentSansItalic from "assets/fonts/InstrumentSans-Italic-VariableFont_wdthwght.ttf";
 

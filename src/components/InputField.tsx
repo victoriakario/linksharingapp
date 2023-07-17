@@ -1,7 +1,8 @@
 import { useCallback } from "react";
 import styled from "styled-components";
-import { bodyText, bodyTextSmall } from "./Typography";
+
 import * as icons from "components/icons";
+import { bodyText, bodyTextSmall } from "components/Typography";
 
 interface InputFieldProps {
   error?: string;
@@ -52,10 +53,12 @@ const Input = styled.input`
   border: none;
   outline: none;
   padding: 0;
+  flex: 1;
+
   &:focus {
     outline: none;
   }
-  flex: 1;
+  
   &::placeholder {
     opacity: 0.5;
   }
