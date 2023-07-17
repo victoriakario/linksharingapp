@@ -15,6 +15,10 @@ const secondaryStyles = css`
   }
 `;
 
+const conditionallyAddSecondaryStyle = ({$variant = "primary"}): typeof secondaryStyles | null => {
+  return $variant === "secondary" ? secondaryStyles : null;
+}
+
 export const Button = styled.button<ButtonProps>`
   ${headingSmall};
   align-items: center;
@@ -37,9 +41,7 @@ export const Button = styled.button<ButtonProps>`
     box-shadow: var(--box-shadow-primary);
   }
 
-  ${({$variant = "primary"}): typeof secondaryStyles | null => {
-    return $variant === "secondary" ? secondaryStyles : null;
-  }}
+  ${conditionallyAddSecondaryStyle}
 
   &:disabled {
     opacity: .25;
