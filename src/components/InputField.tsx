@@ -4,12 +4,12 @@ import { bodyText, bodyTextSmall } from "./Typography";
 import * as icons from "components/icons";
 
 interface InputFieldProps {
+  error?: string;
   fieldName: string;
+  icon?: keyof typeof icons;
   label: string;
   placeholder?: string;
   type?: "password" | "text";
-  icon?: keyof typeof icons;
-  error?: string;
 }
 
 const FieldWrapper = styled.div`
@@ -24,6 +24,7 @@ const addErrorStyling = ({error}: {error?: string}): string | null => {
 
 const InputContentBox = styled.div<{error?: string}>`
   ${addErrorStyling}
+  align-items: center;
   border: 1px solid var(--input-border-color);
   border-radius: 8px;
   box-sizing: border-box;
@@ -33,7 +34,6 @@ const InputContentBox = styled.div<{error?: string}>`
   padding: 12px 16px;
   position: relative;
   width: 100%;
-  align-items: center;
   &:focus-within {
     border-color: var(--accent-color);
     box-shadow: var(--box-shadow-primary);
@@ -42,8 +42,9 @@ const InputContentBox = styled.div<{error?: string}>`
 
 const Label = styled.label`
   ${bodyTextSmall};
-  margin-bottom: .25rem;
+  color: var(--heading-text-color);
   display: block;
+  margin-bottom: .25rem;
 `;
 
 const Input = styled.input`
