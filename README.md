@@ -46,18 +46,19 @@ Users should be able to:
 
 ### Built with
 
-- Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
+- Semantic HTML5 markup
+- [ESLint](https://eslint.org/) - Find and fix problems in the code
 - [React](https://reactjs.org/) - JS library
 - [Styled Components](https://styled-components.com/) - For styles
+- [Typescript](https://www.typescriptlang.org/) - Add syntax to Javascript to support tighter integrations
 
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+Using custom Typescript and ESLint rules can cause a project to be frustrating to build, but super helpful after many, many pages and components are in play.
 
 
 ### Continued development
