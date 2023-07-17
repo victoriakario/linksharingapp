@@ -8,10 +8,11 @@ interface AuthContainerProps {
 }
 
 const Container = styled.div`
+  background-color: var(--panel-background-color);
   box-sizing: border-box;
   max-width: 476px;
   padding: 2rem;
-  width: 100%;
+  width: 100%;'
 `;
 
 const LogoContainer = styled.div`

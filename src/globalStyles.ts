@@ -17,12 +17,13 @@ const GlobalStyle = createGlobalStyle`
 
   :root {
     --background-color: #fafafa;
+    --panel-background-color: #fff;
     --body-text-color: #737373;
     --heading-text-color: #333;
     --accent-color: #633cff;
     --accent-hover-color: #beadff;
     --accent-light-color: #efebff; //secondary active button color, place holder color
-    --light-text-color: #ffffff;
+    --light-text-color: #fff;
     --input-border-color: #d9d9d9;
     --alert-color: #ff3939;
 
