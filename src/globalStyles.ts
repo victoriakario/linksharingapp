@@ -4,7 +4,6 @@ import InstrumentSans from "assets/fonts/InstrumentSans-VariableFont_wdthwght.tt
 import InstrumentSansItalic from "assets/fonts/InstrumentSans-Italic-VariableFont_wdthwght.ttf";
 
 const GlobalStyle = createGlobalStyle`
-
   @font-face {
     font-family: "Instrument Sans";
     src: url(${InstrumentSans}) format("truetype");
