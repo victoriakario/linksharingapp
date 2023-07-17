@@ -50,8 +50,10 @@ const Label = styled.label`
 const Input = styled.input`
   ${bodyText};
   border: none;
+  display: block;
   outline: none;
   padding: 0;
+  width: 100%;
   &:focus {
     outline: none;
   }
