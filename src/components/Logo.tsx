@@ -1,22 +1,20 @@
 import styled from "styled-components";
-import { ReactComponent as LogoImage } from "assets/images/logo-devlinks-large.svg";
+import { ReactComponent as LogoLarge } from "assets/images/logo-devlinks-large.svg";
+import { ReactComponent as LogoSmall } from "assets/images/logo-devlinks-small.svg";
 
+interface LogoProps {
+  small?: boolean;
+}
 
 const LogoContainer = styled.div`
-  align-items: center;
   display: flex;
-  justify-content: flex-start;
-  padding-bottom: 64px;
-  @media (min-width: 481px) {
-    justify-content: center;
-    padding-bottom: 91px;
-  }
+  align-items: center;
 `;
 
-export const Logo = (): JSX.Element => {
+export const Logo = ({small = false}: LogoProps): JSX.Element => {
   return (
     <LogoContainer>
-      <LogoImage />
+      {small ? <LogoSmall /> : <LogoLarge />}
     </LogoContainer>
   );
 };
