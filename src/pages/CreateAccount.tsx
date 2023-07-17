@@ -25,7 +25,6 @@ const HelperTextSmall = styled(HelperText)`
   margin-bottom: 1.5rem;
 `;
 
-
 const CenteredHelperText = styled(HelperText)`
   margin-bottom: unset;
   text-align: center;
