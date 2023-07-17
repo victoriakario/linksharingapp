@@ -84,7 +84,6 @@ export const InputField = ({error, fieldName, label, placeholder, type = "text",
     return <Icon />;
   }, [icon]);
 
-
   return (
     <FieldWrapper>
       <Label htmlFor={`input-${fieldName}`}>
