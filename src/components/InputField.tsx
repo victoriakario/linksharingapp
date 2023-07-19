@@ -73,15 +73,14 @@ const Messages = styled.div`
 
 export const InputField = ({error, fieldName, label, placeholder, type = "text", icon}: InputFieldProps): JSX.Element => {
   const renderIcon = useCallback(() => {
-    if (icon === undefined) {
+    if (icon === undefined || !(icon in icons)) {
       return null;
     }
 
-    const Icon = styled(icons[icon])`
-      flex: 0 0 auto;
-    `;
+    const Icon = icons[icon];
 
     return <Icon />;
+
   }, [icon]);
 
   return (
