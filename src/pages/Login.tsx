@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { AuthContainer } from "components/AuthContainer";
@@ -21,19 +22,21 @@ const HelperText = styled.div`
 `;
 
 const CenteredHelperText = styled(HelperText)`
+  display: flex;
+  flex-direction: column;
   margin-bottom: unset;
-  text-align: center;
-  & > & {
+  align-items: center;
+  & > a {
     color: var(--accent-color);
-    display: block;
     text-decoration: none;
     &:hover {
       color: var(--accent-hover-color);
     }
   }
   @media (min-width: 786px) {
-    & > & {
-      display: inline;
+    flex-direction: row;
+    justify-content: center;
+    & > a {
       padding-left: .25em;
     }
   }
@@ -65,9 +68,7 @@ export const Login = (): JSX.Element => {
         <Button>Login</Button>
         <CenteredHelperText>
           Don&apos;t have an account?
-          <CenteredHelperText as="a" href="#">
-            Create account
-          </CenteredHelperText>
+          <Link to="/signup">Create account</Link>
         </CenteredHelperText>
       </FormWrapper>
     </AuthContainer>

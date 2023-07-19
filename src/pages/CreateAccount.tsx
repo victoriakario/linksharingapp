@@ -4,6 +4,7 @@ import { AuthContainer } from "components/AuthContainer";
 import { Button } from "components/Button";
 import { InputField } from "components/InputField";
 import { bodyText, bodyTextSmall, headingMedium } from "components/Typography";
+import { Link } from "react-router-dom";
 
 const FormWrapper = styled.div`
   box-sizing: border-box;
@@ -26,19 +27,21 @@ const HelperTextSmall = styled(HelperText)`
 `;
 
 const CenteredHelperText = styled(HelperText)`
+  display: flex;
+  flex-direction: column;
   margin-bottom: unset;
-  text-align: center;
-  & > & {
+  align-items: center;
+  & > a {
     color: var(--accent-color);
-    display: block;
     text-decoration: none;
     &:hover {
       color: var(--accent-hover-color);
     }
   }
   @media (min-width: 786px) {
-    & > & {
-      display: inline;
+    flex-direction: row;
+    justify-content: center;
+    & > a {
       padding-left: .25em;
     }
   }
@@ -80,9 +83,7 @@ export const CreateAccount = (): JSX.Element => {
         <Button>Create new account</Button>
         <CenteredHelperText>
           Already have an account?
-          <CenteredHelperText as="a" href="#">
-            Login
-          </CenteredHelperText>
+          <Link to="/login">Login</Link>
         </CenteredHelperText>
 
       </FormWrapper>
