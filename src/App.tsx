@@ -13,7 +13,7 @@ const AppBody = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 101vh;  
+  min-height: 101vh;
   position: relative;
   @media (max-width: 480px) {
     justify-content: flex-start;
