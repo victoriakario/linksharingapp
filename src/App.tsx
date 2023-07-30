@@ -5,6 +5,7 @@ import GlobalStyle from "globalStyles";
 import { CreateAccount } from "pages/CreateAccount";
 import { HomeLayout } from "pages/HomeLayout";
 import { Login } from "pages/Login";
+import { ProfileDetails } from "components/ProfileDetails";
 
 const AppBody = styled.div`
   align-items: center;
@@ -12,18 +13,23 @@ const AppBody = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 101vh;
   position: relative;
-  @media (max-width: 480px) {
-    justify-content: flex-start;
+  @media (min-width: 480px) {
+    justify-content: center;
+  }
+  @media (min-width: 768px) {
+    width: 100%;
   }
 `;
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route element={<HomeLayout />} path="/" />
+      <Route element={<HomeLayout />}>
+        <Route element={<ProfileDetails />} path="/" />
+      </Route>
       <Route element={<Login />} path="/login" />
       <Route element={<CreateAccount />} path="/signup" />
     </>,
@@ -34,7 +40,7 @@ const App = (): JSX.Element => {
   return (
     <>
       <GlobalStyle />
-      <AppBody>
+      <AppBody className="AppBody">
         <RouterProvider router={router} />
       </AppBody>
     </>
