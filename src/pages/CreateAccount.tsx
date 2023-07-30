@@ -1,10 +1,10 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { AuthContainer } from "components/AuthContainer";
 import { Button } from "components/Button";
 import { InputField } from "components/InputField";
 import { bodyText, bodyTextSmall, headingMedium } from "components/Typography";
-import { Link } from "react-router-dom";
 
 const FormWrapper = styled.div`
   box-sizing: border-box;

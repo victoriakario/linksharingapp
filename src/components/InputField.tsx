@@ -5,6 +5,7 @@ import * as icons from "components/icons";
 import { bodyText, bodyTextSmall } from "components/Typography";
 
 interface InputFieldProps {
+  className?: string;
   error?: string;
   fieldName: string;
   icon?: keyof typeof icons;
@@ -14,7 +15,14 @@ interface InputFieldProps {
 }
 
 const FieldWrapper = styled.div`
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
   margin-bottom: 1.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const addErrorStyling = ({error}: {error?: string}): string | null => {
@@ -26,6 +34,7 @@ const addErrorStyling = ({error}: {error?: string}): string | null => {
 const InputContentBox = styled.div<{error?: string}>`
   ${addErrorStyling}
   align-items: center;
+  background-color: var(--panel-background-color);
   border: 1px solid var(--input-border-color);
   border-radius: 8px;
   box-sizing: border-box;
@@ -35,6 +44,7 @@ const InputContentBox = styled.div<{error?: string}>`
   padding: 12px 16px;
   position: relative;
   width: 100%;
+  
   &:focus-within {
     border-color: var(--accent-color);
     box-shadow: var(--box-shadow-primary);
@@ -71,7 +81,7 @@ const Messages = styled.div`
   text-align: right;
 `;
 
-export const InputField = ({error, fieldName, label, placeholder, type = "text", icon}: InputFieldProps): JSX.Element => {
+export const InputField = ({className, error, fieldName, label, placeholder, type = "text", icon}: InputFieldProps): JSX.Element => {
   const renderIcon = useCallback(() => {
     if (icon === undefined || !(icon in icons)) {
       return null;
@@ -84,7 +94,7 @@ export const InputField = ({error, fieldName, label, placeholder, type = "text",
   }, [icon]);
 
   return (
-    <FieldWrapper>
+    <FieldWrapper className={className}>
       <Label htmlFor={`input-${fieldName}`}>
         {label}
       </Label>
