@@ -1,15 +1,11 @@
-import { ReactNode } from "react";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 
 import { Button } from "components/Button";
 import { PreviewHeaderIcon } from "components/icons";
 import { Logo } from "components/Logo";
+import { MainContentContainer } from "components/MainContentContainer";
 import { Tab } from "components/Tab";
-
-interface HomeLayoutProps {
-  children?: ReactNode;
-}
 
 const HomeWrapper = styled.div`
   box-sizing: border-box;
@@ -19,12 +15,14 @@ const HomeWrapper = styled.div`
 `;
 
 const MenuBar = styled.div`
-align-items: center;
-box-sizing: border-box;
-display: flex;
-flex-direction: row;
-padding: 1rem 1rem 1rem 1.5rem;
-width: 100%;
+  align-items: center;
+  border-radius: 12px;
+  box-sizing: border-box;
+  background-color: var(--panel-background-color);
+  display: flex;
+  flex-direction: row;
+  padding: 1rem 1rem 1rem 1.5rem;
+  width: 100%;
 `;
 
 const MenuBarWrapper = styled.div`
@@ -34,24 +32,24 @@ const MenuBarWrapper = styled.div`
 `;
 
 const PreviewButton = styled(Button)`
-width: unset;
-margin: unset;
-padding: 11px 16px;
-@media (min-width: 786px) {
-  padding: 11px 27px;
-}
+  width: unset;
+  margin: unset;
+  padding: 11px 16px;
+  @media (min-width: 786px) {
+    padding: 11px 27px;
+  }
 `;
 
 const Spacer = styled.div`
   flex-grow: 1;
 `;
 
-export const HomeLayout = ({ children }: HomeLayoutProps): JSX.Element => {
+export const HomeLayout = (): JSX.Element => {
   const isDesktopOrTablet = useMediaQuery({ minWidth: "786px" });
 
   return (
-    <HomeWrapper>
-      <MenuBarWrapper>
+    <HomeWrapper className="HomeWrapper">
+      <MenuBarWrapper className="MenuBarWrapper">
         <MenuBar>
           <Logo small={!isDesktopOrTablet} />
           <Spacer />
@@ -63,7 +61,7 @@ export const HomeLayout = ({ children }: HomeLayoutProps): JSX.Element => {
           </PreviewButton>
         </MenuBar>
       </MenuBarWrapper>
-      { children }
+      <MainContentContainer />
     </HomeWrapper>
   );
 };
