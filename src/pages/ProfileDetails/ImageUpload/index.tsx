@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import { ImageUploadBox } from "components/ImageUploadBox";
 import { bodyText } from "components/Typography";
 
+import { ImageUploadBox } from "./ImageUploadBox";
 
 const ProfileImageUploadContainer = styled.div`
   display: flex;

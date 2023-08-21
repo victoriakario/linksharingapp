@@ -4,9 +4,15 @@ import styled from "styled-components";
 
 import { useImageURI } from "globalstate/ImageURI";
 
-import { PanelContainer } from "components/PanelContainer";
-import { Button } from "components/Button";
-import { PreviewPanel } from "components/PreviewPanel";
+import { Button, MenuBar, PanelContainer, PreviewPanel } from "components";
+
+
+const HomeWrapper = styled.div`
+  box-sizing: border-box;
+  min-height: 101vh;
+  position: relative;
+  width: 100%;
+`;
 
 const ContentContainer = styled.div`
   box-sizing: border-box;
@@ -51,21 +57,25 @@ const SaveButton = styled(Button)`
   }
 `;
 
-export const MainContentContainer = (): JSX.Element => {
+
+export const HomeLayout = (): JSX.Element => {
   const isDesktop = useMediaQuery({ minWidth: "1080px"});
   const {imageURI} = useImageURI();
 
   return (
-    <ContentContainer>
-      { isDesktop ? <PreviewPanel imageURI={imageURI} /> : null }
-      <ContentWrapper>
-        <Outlet />
-        <ButtonContainer>
-          <SaveButton>
-            Save
-          </SaveButton>
-        </ButtonContainer>
-      </ContentWrapper>
-    </ContentContainer>
+    <HomeWrapper className="HomeWrapper">
+      <MenuBar />
+      <ContentContainer>
+        { isDesktop ? <PreviewPanel imageURI={imageURI} /> : null }
+        <ContentWrapper>
+          <Outlet />
+          <ButtonContainer>
+            <SaveButton>
+              Save
+            </SaveButton>
+          </ButtonContainer>
+        </ContentWrapper>
+      </ContentContainer>
+    </HomeWrapper>
   );
 };

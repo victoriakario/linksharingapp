@@ -1,11 +1,11 @@
 import { create } from "zustand";
 
 interface ImageURIState {
-  imageURI: string | null;
-  setImageURI: (uri: string | null) => void;
+  imageURI?: string;
+  setImageURI: (uri: string) => void;
 }
 
 export const useImageURI = create<ImageURIState>((set) => ({
-  imageURI: null,
+  imageURI: undefined,
   setImageURI: (uri): void => set({ imageURI: uri }),
 }));

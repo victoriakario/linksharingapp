@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   :root {
-    --background-color: #fafafa; // #69f4a8;
+    --background-color: #69f4a8; // #fafafa;
     --panel-background-color: #fff;
     --body-text-color: #737373;
     --heading-text-color: #333;

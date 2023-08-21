@@ -1,10 +1,11 @@
 import { useCallback } from "react";
 import styled from "styled-components";
 
-import { Button } from "components/Button";
 import { ArrowRightIcon } from "components/icons";
 import * as icons from "components/icons";
 import { bodyTextSmall } from "components/Typography";
+
+import { Button } from "./Button";
 
 interface LinksButtonProps {
   icon?: keyof typeof icons;

@@ -1,11 +1,9 @@
 import styled from "styled-components";
 
-import { ImageUpload } from "components/ImageUpload";
-import { InnerPanel } from "components/InnerPanel";
-import { InputField } from "components/InputField";
-import { PanelContainer } from "components/PanelContainer";
+import { InnerPanel, InputField, PanelContainer } from "components";
 import { bodyText, headingMedium } from "components/Typography";
 
+import { ImageUpload } from "./ImageUpload";
 
 const ProfileContainer = styled(PanelContainer)`
   border-bottom-left-radius: unset;

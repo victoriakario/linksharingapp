@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
 
-import { PanelContainer } from "components/PanelContainer";
+import { PanelContainer } from "./PanelContainer";
 
 interface InnerPanelProps {
   children?: ReactNode;

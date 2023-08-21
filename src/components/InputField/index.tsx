@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import * as icons from "components/icons";
 import { bodyText, bodyTextSmall } from "components/Typography";
+import { InterpolationFunction } from "utils";
 
 interface InputFieldProps {
   className?: string;
@@ -25,7 +26,7 @@ const FieldWrapper = styled.div`
   }
 `;
 
-const addErrorStyling = ({error}: {error?: string}): string | null => {
+const addErrorStyling: InterpolationFunction<{error?: string}> = ({error}) => {
   if (error === undefined) return null;
 
   return "--input-border-color: var(--alert-color);";
@@ -81,7 +82,7 @@ const Messages = styled.div`
   text-align: right;
 `;
 
-export const InputField = ({className, error, fieldName, label, placeholder, type = "text", icon}: InputFieldProps): JSX.Element => {
+export const InputField = ({className, error, fieldName, icon, label, placeholder, type = "text"}: InputFieldProps): JSX.Element => {
   const renderIcon = useCallback(() => {
     if (icon === undefined || !(icon in icons)) {
       return null;

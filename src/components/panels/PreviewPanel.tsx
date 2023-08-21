@@ -1,20 +1,21 @@
 import styled from "styled-components";
 
-import PhoneImage from "assets/images/illustration-phone-mockup.svg";
-import { LinkshareButton } from "components/LinkshareButton";
+import { LinkshareButton } from "components";
+import { IllustrationPhoneMockupURL } from "components/graphics";
 import { bodyText } from "components/Typography";
-import { PanelContainer } from "components/PanelContainer";
+
+import { PanelContainer } from "./PanelContainer";
 
 interface PreviewPanelProps {
-  imageURI: string | null;
+  imageURI?: string;
 }
 
 interface ProfileImageProps {
-  $imageURI: string | null;
+  $imageURI?: string;
 }
 
-const checkForImage = ({$imageURI}: ProfileImageProps): string | undefined => {
-  if ($imageURI !== null) {
+const checkForImage = ({$imageURI = ""}: ProfileImageProps): string | undefined => {
+  if ($imageURI) {
     return `background-image: url(${$imageURI});`;
   }
 
@@ -36,7 +37,7 @@ const Panel = styled(PanelContainer)`
 `;
 
 const PreviewBase = styled.div`
-  background-image: url(${PhoneImage});
+  background-image: url(${IllustrationPhoneMockupURL});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -51,6 +52,8 @@ const ProfileImage = styled.div<ProfileImageProps>`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  box-sizing: border-box;
+  border: 4px solid var(--accent-color);
   border-radius: 50%;
   margin-bottom: 25px;
   margin-inline: 105px;

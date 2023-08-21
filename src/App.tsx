@@ -2,10 +2,11 @@ import { RouterProvider, Route, createBrowserRouter, createRoutesFromElements } 
 import styled from "styled-components";
 
 import GlobalStyle from "globalStyles";
+import { ProfileDetails } from "pages/ProfileDetails";
+import { AccessRestrictedLayout } from "layouts/AccessRestrictedLayout";
+import { HomeLayout } from "layouts/HomeLayout";
 import { CreateAccount } from "pages/CreateAccount";
-import { HomeLayout } from "pages/HomeLayout";
 import { Login } from "pages/Login";
-import { ProfileDetails } from "components/ProfileDetails";
 
 const AppBody = styled.div`
   align-items: center;
@@ -16,10 +17,12 @@ const AppBody = styled.div`
   justify-content: flex-start;
   min-height: 101vh;
   position: relative;
+
   @media (min-width: 480px) {
     justify-content: center;
   }
-  @media (min-width: 768px) {
+  
+  @media (min-width: 786px) {
     width: 100%;
   }
 `;
@@ -30,8 +33,10 @@ const router = createBrowserRouter(
       <Route element={<HomeLayout />}>
         <Route element={<ProfileDetails />} path="/" />
       </Route>
-      <Route element={<Login />} path="/login" />
-      <Route element={<CreateAccount />} path="/signup" />
+      <Route element={<AccessRestrictedLayout />}>
+        <Route element={<Login />} path="/login" />
+        <Route element={<CreateAccount />} path="/signup" />
+      </Route>
     </>,
   ),
 );
