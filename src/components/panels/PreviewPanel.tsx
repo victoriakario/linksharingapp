@@ -56,7 +56,8 @@ const ProfileImage = styled.div<ProfileImageProps>`
   border: 4px solid var(--accent-color);
   border-radius: 50%;
   margin-bottom: 25px;
-  margin-inline: 105px;
+  margin-left: 105px;
+  margin-right: 105px;
   margin-top: 63.5px;
   width: 96px;
 `;
