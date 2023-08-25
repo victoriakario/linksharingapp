@@ -6,6 +6,6 @@ interface ImageURIState {
 }
 
 export const useImageURI = create<ImageURIState>((set) => ({
-  imageURI: undefined,
+  imageURI: "",
   setImageURI: (uri): void => set({ imageURI: uri }),
 }));
