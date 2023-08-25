@@ -1,12 +1,13 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 import { headingSmall } from "components/Typography";
+import { InterpolationFunction } from "utils";
 
 interface ButtonProps {
   $variant?: "primary" | "secondary";
 }
 
-const secondaryStyles = css`
+const secondaryStyles = `
   background-color: var(--light-text-color);
   border: 1px solid var(--accent-color);
   color: var(--accent-color);
@@ -15,7 +16,7 @@ const secondaryStyles = css`
   }
 `;
 
-const conditionallyAddSecondaryStyle = ({$variant = "primary"}): typeof secondaryStyles | null => {
+const conditionallyAddSecondaryStyle: InterpolationFunction<ButtonProps> = ({$variant = "primary"}) => {
   return $variant === "secondary" ? secondaryStyles : null;
 };
 

@@ -2,7 +2,7 @@ import { AnchorHTMLAttributes } from "react";
 import { useMediaQuery } from "react-responsive";
 import styled, { css } from "styled-components";
 
-import { Button } from "components/Button";
+import { Button } from "components";
 import { LinksHeaderIcon, ProfileDetailsHeaderIcon } from "components/icons";
 
 interface TabProps {
@@ -17,15 +17,18 @@ interface TabButtonProps {
 const activeStyles = css`
   background-color: var(--accent-light-color);
   color: var(--accent-color);
+
   && svg path {
     fill: var(--accent-color);
   }
+
   &&:hover {
     background-color: var(--accent-light-color);
     box-shadow: none;
     color: var(--accent-color);
     cursor: unset;
   }
+  
   &&:hover svg path {
     fill: var(--accent-color);
   }
@@ -38,14 +41,17 @@ const TabButton = styled(Button)<TabButtonProps>`
   text-decoration: none;
   user-select: none;
   width: unset;
+
   && svg path {
     fill: var(--body-text-color);
   }
+
   &&:hover {
     background-color: var(--light-text-color);
     box-shadow: none;
     color: var(--accent-color);
   }
+
   &&:hover svg path {
     fill: var(--accent-color);
   }

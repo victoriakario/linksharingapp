@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { AuthContainer } from "components/AuthContainer";
-import { Button } from "components/Button";
-import { InputField } from "components/InputField";
+import { Button, InputField } from "components";
 import { bodyText, headingMedium } from "components/Typography";
+
 
 const FormWrapper = styled.div`
   box-sizing: border-box;
   width: 100%;
+  padding: 35px;
 `;
 
 const Heading = styled.div`
@@ -44,33 +44,31 @@ const CenteredHelperText = styled(HelperText)`
 
 export const Login = (): JSX.Element => {
   return (
-    <AuthContainer>
-      <FormWrapper>
-        <Heading>
-          Login
-        </Heading>
-        <HelperText>
-          Add your details below to get back into the app
-        </HelperText>
-        <InputField
-          fieldName="email"
-          icon="EmailIcon"
-          label="Email Address"
-          placeholder="e.g., alex@email.com"
-        />
-        <InputField
-          fieldName="password"
-          icon="PasswordIcon"
-          label="Password"
-          placeholder="Enter your password"
-          type="password"
-        />
-        <Button>Login</Button>
-        <CenteredHelperText>
-          Don&apos;t have an account?
-          <Link to="/signup">Create account</Link>
-        </CenteredHelperText>
-      </FormWrapper>
-    </AuthContainer>
+    <FormWrapper>
+      <Heading>
+        Login
+      </Heading>
+      <HelperText>
+        Add your details below to get back into the app
+      </HelperText>
+      <InputField
+        fieldName="email"
+        icon="EmailIcon"
+        label="Email Address"
+        placeholder="e.g., alex@email.com"
+      />
+      <InputField
+        fieldName="password"
+        icon="PasswordIcon"
+        label="Password"
+        placeholder="Enter your password"
+        type="password"
+      />
+      <Button>Login</Button>
+      <CenteredHelperText>
+        Don&apos;t have an account?
+        <Link to="/signup">Create account</Link>
+      </CenteredHelperText>
+    </FormWrapper>
   );
 };

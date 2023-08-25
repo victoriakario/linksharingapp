@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
-import { ReactComponent as LogoLarge } from "assets/images/logo-devlinks-large.svg";
-import { ReactComponent as LogoSmall } from "assets/images/logo-devlinks-small.svg";
+import { LogoLarge, LogoSmall } from "components/graphics";
 
 interface LogoProps {
   small?: boolean;
